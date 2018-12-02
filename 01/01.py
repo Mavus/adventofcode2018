@@ -1,6 +1,6 @@
 from operator import add, sub
 
-ops = {
+OPS = {
     '+': add,
     '-': sub
 }
@@ -10,9 +10,8 @@ def part_1():
     with open('input.txt', 'r') as f:
         for line in f:
             symbol, value = line[0], int(line[1:])
-            op_function = ops[symbol]
+            op_function = OPS[symbol]
             frequency = op_function(frequency, value) 
-
     return frequency
 
 def part_2():
@@ -22,7 +21,7 @@ def part_2():
         while True:
             for line in f:
                 symbol, value = line[0], int(line[1:])
-                op_function = ops[symbol]
+                op_function = OPS[symbol]
                 frequency = op_function(frequency, value)
                 if frequency in previous_frequencies:
                     return frequency
@@ -30,7 +29,6 @@ def part_2():
                     previous_frequencies.add(frequency)
             # At the end of the file we 'rewind' it
             f.seek(0)
-
 
 print(part_1())
 print(part_2())
