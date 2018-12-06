@@ -5,7 +5,7 @@ OPS = {
     '-': sub
 }
 
-def part_1():
+def total_frequency():
     frequency = 0
     with open('input.txt', 'r') as f:
         for line in f:
@@ -14,7 +14,7 @@ def part_1():
             frequency = op_function(frequency, value) 
     return frequency
 
-def part_2():
+def first_reoccuring_freq():
     frequency = 0
     previous_frequencies = set([0])
     with open('input.txt', 'r') as f:
@@ -30,5 +30,5 @@ def part_2():
             # At the end of the file we 'rewind' it
             f.seek(0)
 
-print(part_1())
-print(part_2())
+print(total_frequency())
+print(first_reoccuring_freq())
